@@ -27,8 +27,6 @@
   <!--<includeOverrides package="eea.facetednavigation" file="overrides.zcml"-->
   <!--with_ploneproduct_plomino -->
   <!--with_ploneproduct_plominotinymce -->
-  <include package="plomino.tinymce" file="configure.zcml"/>
-  <include package="Products.CMFPlomino" file="configure.zcml"/>
   <!--with_ploneproduct_cjqui -->
   <include package="collective.js.jqueryui" file="configure.zcml"/>
   <!--with_ploneproduct_ckeditor -->

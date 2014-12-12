@@ -59,8 +59,6 @@ setup(
         "plone.app.themingplugins",
         # with_ploneproduct_cjqui
         "collective.js.jqueryui",
-        # with_ploneproduct_plominotinymce
-        "plomino.tinymce",
         # with_ploneproduct_ckeditor
         "collective.ckeditor",
         # with_ploneproduct_eeafn
@@ -73,8 +71,12 @@ setup(
         # with_ploneproduct_pacaching
         "plone.app.caching",
         # with_ploneproduct_plomino
-        "Products.CMFPlomino",
+        'plone.app.widgets[archetypes,dexterity]',
+        "collective.zipfiletransport",
+        "plone.app.contenttypes",
         # -*- Extra requirements: -*-
+        #"plomino.tinymce",
+        #"Products.CMFPlomino",
     ],
     extras_require={
         "test": ["plone.app.testing", "ipython"]

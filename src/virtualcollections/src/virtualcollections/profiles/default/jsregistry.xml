@@ -16,7 +16,17 @@
   <!--
     <javascript id="++resource++virtualcollections/something.js"/>
     -->
+  <javascript id="++resource++plone.app.jquery.js" insert-before="*"/>
+  <javascript id="++resource++plone.app.widgets.js" insert-before="*"/>
   <javascript id="++theme++virtualcollections/js/theme.js"/>
+  <javascript id="collective.js.jqueryui.custom.min.js"
+                insert-after="++resource++plone.app.jquery.js"
+                insert-before="++theme++virtualcollections/js/jquery.dataTables.min.js"/>
+  <javascript enabled="true" id="++theme++virtualcollections/js/jquery.dataTables.min.js" 
+              insert-before="++resource++plomino.javascript/plomino.codemirror.js"/>
+  <javascript enabled="false" id="++resource++jquery.datatables.js" insert-before="++resource++plomino.javascript/plomino.codemirror.js"/>
+  <javascript enabled="false" insert-after="++resource++jquery.datatables.js" id="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"/>
+  <javascript enabled="false" insert-after="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"  id="++resource++jquery.datatables/extras/TableTools/media/js/TableTools.js"/>
 
 
 </object>

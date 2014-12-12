@@ -26,7 +26,14 @@
 
   <stylesheet applyPrefix="True" title="" id="++theme++virtualcollections/css/theme.min.css"
     expression="request/HTTP_X_THEME_ENABLED | nothing" />
+  <stylesheet insert-before="++theme++virtualcollections/css/theme.min.css" 
+              id="++theme++virtualcollections/css/jquery.dataTables.min.css" 
+              applyPrefix="True" title=""/>
+  <stylesheet enabled="false" applyPrefix="True" title="" id="++resource++jquery.datatables/media/css/jquery.dataTables.css" />
+  <stylesheet enabled="false" applyPrefix="True" title="" id="++resource++jquery.datatables/extras/TableTools/media/css/TableTools.css" />
+
   <stylesheet applyPrefix="True" title="" id="columns.css"
       expression="not:request/HTTP_X_THEME_ENABLED | nothing" />
+
   <stylesheet id="mobile.css"  enabled="False" />
 </object>
