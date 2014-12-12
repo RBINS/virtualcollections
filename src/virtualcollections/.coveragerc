@@ -1,0 +1,8 @@
+[run]
+branch = True
+source =
+    src/virtualcollections
+omit=
+    src/virtualcollections/tests/**/*.py
+    src/virtualcollections/tests/*.py
+    src/virtualcollections/testing.py

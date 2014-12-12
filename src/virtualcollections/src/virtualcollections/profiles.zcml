@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="virtualcollections">
+  <!-- Include direct package dependencies -->
+  <genericsetup:registerProfile
+      name="qi"
+      title=" Policy QI"
+      directory="profiles/qi"
+      description="Turn a Plone site into the  QIINFO site."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+  <genericsetup:registerProfile
+      name="default"
+      title="virtualcollections"
+      directory="profiles/default"
+      description="Install the virtualcollections addon on this plone site."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+  <genericsetup:registerProfile
+      title="virtualcollections uninstall"
+      name="uninstall"
+      description="Uninstall the virtualcollections addon on tbis plone site."
+      directory="profiles/uninstall"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      />
+  <genericsetup:importStep
+      name="virtualcollections setupVarious"
+      title="various setup for virtualcollections "
+      description="description"
+      handler="virtualcollections.setuphandlers.setupVarious">
+    <depends name="plone-content"/>
+  </genericsetup:importStep>
+  <!-- migration steps -->
+  <genericsetup:importStep
+      name="virtualcollections setupQi"
+      title="Quick Installer products dependencies setup for virtualcollections"
+      description="description"
+      handler="virtualcollections.setuphandlers.setupQi">
+    <depends name="plone-content"/>
+  </genericsetup:importStep>
+  <!-- -->
+  <include package=".upgrades"/>
+</configure>
