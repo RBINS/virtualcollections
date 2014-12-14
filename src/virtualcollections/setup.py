@@ -74,6 +74,7 @@ setup(
         'plone.app.widgets[archetypes,dexterity]',
         "collective.zipfiletransport",
         "plone.app.contenttypes",
+        "plone.app.ldap",
         # -*- Extra requirements: -*-
         #"plomino.tinymce",
         #"Products.CMFPlomino",
