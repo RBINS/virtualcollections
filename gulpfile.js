@@ -7,9 +7,7 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var rename = require('gulp-rename');
 var debug = require('gulp-debug');
-var clean = require('gulp-clean');
 var concat = require('gulp-concat');
-var notify = require('gulp-notify');
 var cache = require('gulp-cache');
 var d = "./src/virtualcollections/src//virtualcollections/static/";
 var lessfiles = [d+'less/_virtualcollections.less'];
@@ -23,11 +21,9 @@ styles = gulp.task(
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(rename("theme.css"))
         .pipe(gulp.dest(d+'css/'))
-        .pipe(notify({message: 'Styles task complete'}))
         .pipe(minifycss())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(d+'css/'))
-        .pipe(notify({message: 'Styles task min complete'}));
+        .pipe(gulp.dest(d+'css/'));
     });
 /*
 js = gulp.task(
