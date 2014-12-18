@@ -5817,9 +5817,10 @@ h1 {
 h2 {
   font-size: 15px;
 }
-a:focus {
-  outline: #efeddb dotted 3px;
+/* a:focus{
+  outline: @color-focus dotted 3px;
 }
+*/
 #visual-portal-wrapper {
   margin-top: 1em;
 }
@@ -5852,6 +5853,10 @@ a:focus {
   width: 146px;
   height: 20px;
   vertical-align: top;
+}
+#portal-personaltools-wrapper {
+  position: relative;
+  z-index: 5200;
 }
 #portal-searchbox-wrapper {
   position: relative;
