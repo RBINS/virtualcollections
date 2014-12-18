@@ -5854,7 +5854,12 @@ a:focus {
   vertical-align: top;
 }
 #portal-searchbox-wrapper {
+  position: relative;
+  z-index: 5000;
   height: 42px;
+}
+#portal-searchbox-wrapper .LSResult {
+  margin-top: 11px;
 }
 #portal-languageselector {
   background-color: transparent;
@@ -5886,6 +5891,7 @@ body#content {
   background-color: White;
 }
 div#nav-wrapper {
+  z-index: 50;
   background: #dddddd;
   margin-top: 15px;
   margin-bottom: 10px;
