@@ -75,6 +75,7 @@ setup(
         "collective.zipfiletransport",
         "plone.app.contenttypes",
         "plone.app.ldap",
+        'rbins_masschange',
         # -*- Extra requirements: -*-
         #"plomino.tinymce",
         #"Products.CMFPlomino",
