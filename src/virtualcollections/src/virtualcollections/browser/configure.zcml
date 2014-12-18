@@ -10,6 +10,13 @@
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
     />
   <interface  name="virtualcollections" interface="virtualcollections.interfaces.ILayer" />
+  <browser:viewlet
+      name="plone.logo"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.LogoViewlet"
+      layer="virtualcollections.interfaces.ILayer"
+      permission="zope2.View"
+    /> 
 
   <!-- Viewlets registration -->
 
