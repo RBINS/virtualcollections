@@ -17,7 +17,8 @@
     <javascript id="++resource++virtualcollections/something.js"/>
     -->
   <javascript id="++resource++plone.app.widgets.js"                        insert-before="*"/>
-  <javascript id="++resource++plone.app.jquery.js"                         insert-after="++resource++plone.app.widgets.js" enabled="false"/>
+  <javascript id="++theme++virtualcollections/js/jquery-migrate-1.2.1.js"  insert-after="++resource++plone.app.widgets.js"/>
+  <javascript id="++resource++plone.app.jquery.js"                         insert-after="++theme++virtualcollections/js/jquery-migrate-1.2.1.js" enabled="false"/>
   <javascript id="collective.js.jqueryui.custom.min.js"                    insert-after="++resource++plone.app.jquery.js"/>
   <javascript id="++theme++virtualcollections/js/jquery.dataTables.min.js" insert-after="collective.js.jqueryui.custom.min.js"/>
   <javascript enabled="false" id="++resource++jquery.datatables.js"/>
