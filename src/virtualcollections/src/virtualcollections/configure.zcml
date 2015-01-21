@@ -12,6 +12,7 @@
   <include package="Products.CMFCore" file="permissions.zcml" />
   <!-- safe check for dexterity or multilingual & tests -->
   <include package="plone.app.contentmenu" />
+  <include package="plone.app.collection" file="configure.zcml" />
   <include package="plone.app.theming" file="configure.zcml" />
   <include package="plone.app.themingplugins" file="configure.zcml" />
   <include package="plone.app.dexterity" file="configure.zcml" />
@@ -19,11 +20,6 @@
   <!-- Load the ZCML configuration for the virtualcollections package.-->
   <!--with_ploneproduct_datatables -->
   <include package="collective.js.datatables" file="configure.zcml"/>
-  <!--with_ploneproduct_eeafn -->
-  <!--with_ploneproduct_eeatags -->
-  <!--with_ploneproduct_eeadaviz -->
-  <include package="eea.facetednavigation" file="meta.zcml"/>
-  <include package="eea.facetednavigation" file="configure.zcml"/>
   <!--<includeOverrides package="eea.facetednavigation" file="overrides.zcml"-->
   <!--with_ploneproduct_plomino -->
   <!--with_ploneproduct_plominotinymce -->
@@ -32,7 +28,39 @@
   <!--with_ploneproduct_ckeditor -->
   <include package="collective.ckeditor" file="configure.zcml"/>
   <!--with_ploneproduct_pacaching -->
-  <include package="plone.app.caching" file="configure.zcml"/>
+  <include package="plone.app.caching" file="configure.zcml"/>o
+  <!--with_ploneproduct_eeafn -->
+  <!--with_ploneproduct_eeatags -->
+  <!--with_ploneproduct_eeadaviz -->
+  <include package="eea.facetednavigation" file="meta.zcml"/>
+  <include package="eea.facetednavigation" file="configure.zcml"/>
+  <class class="Products.ATContentTypes.content.folder.ATFolder">
+    <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
+    <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.topic.ATTopic">
+    <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
+  </class>
+
+  <class class="plone.app.folder.folder.ATFolder">
+    <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
+  </class>
+
+  <class class="plone.dexterity.content.Container">
+    <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
+  </class>
+
+  <class class="plone.app.contenttypes.content.Collection">
+    <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
+  </class> 
+  <class class="plone.app.collection.collection.Collection">
+    <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
+  </class>
+ 
   <five:registerPackage package="." initialize=".initialize" />
   <include package=".browser" />
   <include file="profiles.zcml" />
