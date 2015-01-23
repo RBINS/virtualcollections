@@ -43,6 +43,10 @@ RewriteCond %{REQUEST_URI} !^/(maintainance|.*zmiroot)
 RewriteRule ^/(.*)$ /VirtualHostBase/${scheme}/${host}:${port}/${v:plonesite}/VirtualHostRoot/$1 [L,PT]
 
 # for https://issues.apache.org/bugzilla/show_bug.cgi?id=53218, only use a simple worker url
+
+ProxyPass         /devinprod/        http://${hosts:zope-front}:${ports:devinprod}/VirtualHostBase/${scheme}/${host}:${port}/${v:plonesite}/VirtualHostRoot/_vh_devinprod/ retry=1
+ProxyPassReverse  /devinprod/        http://${hosts:zope-front}:${ports:devinprod}/VirtualHostBase/${scheme}/${host}:${port}/${v:plonesite}/VirtualHostRoot/_vh_devinprod/
+
 ProxyPass         /          http://${hosts:zope-front}:${ports:zope-front}/ retry=1
 ProxyPassReverse  /          http://${hosts:zope-front}:${ports:zope-front}/VirtualHostBase/${scheme}/${host}:${port}/${v:plonesite}/VirtualHostRoot/
 ProxyPassReverse  /zmiroot/  http://${hosts:zope-front}:${ports:zope-front}/VirtualHostBase/${scheme}/${host}:${port}/VirtualHostRoot/_vh_zmiroot/

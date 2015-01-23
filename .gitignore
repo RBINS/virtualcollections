@@ -36,3 +36,8 @@ var/log/instance?.log
 !src/zopelib
 !src/*virtualcollections*
 
+node_modules/
+/grepper/
+/toto.py
+/var.old
+/grepper
