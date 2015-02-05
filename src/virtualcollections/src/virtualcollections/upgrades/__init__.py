@@ -276,15 +276,29 @@ def upgrade_plone(portal_setup):
     return report
 
 
-def upgrade_1000(context):
+def upgrade_1001(context):
     """
     """
-    # site = getToolByName(context, 'portal_url').getPortalObject()
-    #portal_setup = site.portal_setup
+    site = getToolByName(context, 'portal_url').getPortalObject()
+    portal_setup = site.portal_setup
 
     # install Products.PloneSurvey and dependencies
     #migration_util.loadMigrationProfile(
     # site, 'profile-Products.PloneSurvey:default')
+    portal_setup.runAllImportStepsFromProfile(
+        'profile-collective.js.jqueryui:default')
+    portal_setup.runAllImportStepsFromProfile(
+        'profile-collective.js.datatables:default')
+    portal_setup.runAllImportStepsFromProfile(
+        'profile-collective.bibliocustomviews:default')
+    import_css(context)
+    import_js(context)
+    recook_resources(context)
+
+    #portal_setup.runImportStepFromProfile(
+    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)  
+    #portal_setup.runImportStepFromProfile(
+    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False) 
     #portal_setup.runImportStepFromProfile(
     #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)
     #portal_setup.runImportStepFromProfile(
@@ -293,4 +307,4 @@ def upgrade_1000(context):
     #   'profile-virtualcollections:default', 'portlets', run_dependencies=False)
     #portal_setup.runImportStepFromProfile(
     #   'profile-virtualcollections:default', 'propertiestool', run_dependencies=False)
-    log('v1000 applied')
+    log('v1001 applied')

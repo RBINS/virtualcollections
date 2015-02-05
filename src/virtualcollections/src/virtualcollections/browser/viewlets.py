@@ -35,4 +35,11 @@ class LogoViewlet(ViewletBase):
         self.navigation_root_title = self.portal_state.navigation_root_title() 
 
 
+class DocumentBylineViewlet(ViewletBase, content.DocumentBylineViewlet):
+    '''.'''
+    index = ViewPageTemplateFile('document_byline.pt')
+
+    def show(self):
+        return True
+
 #from plone.app.layout.viewlets.common import ViewletBase

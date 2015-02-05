@@ -24,6 +24,7 @@
   <!--with_ploneproduct_plomino -->
   <!--with_ploneproduct_plominotinymce -->
   <!--with_ploneproduct_cjqui -->
+  <include package="collective.bibliocustomviews" file="configure.zcml"/>
   <include package="collective.js.jqueryui" file="configure.zcml"/>
   <!--with_ploneproduct_ckeditor -->
   <include package="collective.ckeditor" file="configure.zcml"/>
@@ -69,6 +70,15 @@
   <cmf:registerDirectory
        name="virtualcollections_custom"/>
   
+
+ 
+
+  <five:implements
+      class="plone.app.contenttypes.content.Folder"
+      interface="collective.bibliocustomviews.interfaces.ISearchViewEnabled"/>
+  <five:implements
+      class="plone.app.contenttypes.content.Collection"
+      interface="collective.bibliocustomviews.interfaces.ISearchViewEnabled"/>
   <include package="plone.resource" file="meta.zcml"/>
   <plone:static directory="static" type="theme" name="virtualcollections" />
 </configure>

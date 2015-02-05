@@ -16,7 +16,14 @@
       class=".viewlets.LogoViewlet"
       layer="virtualcollections.interfaces.ILayer"
       permission="zope2.View"
-    /> 
+    />
+  <browser:viewlet
+      name="plone.belowcontenttitle.documentbyline"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+      class=".viewlets.DocumentBylineViewlet"
+      layer="virtualcollections.interfaces.ILayer"
+      permission="zope2.View"
+      />
 
   <!-- Viewlets registration -->
 

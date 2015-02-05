@@ -63,6 +63,7 @@ setup(
         "collective.ckeditor",
         # with_ploneproduct_eeafn
         "python-dateutil",
+        "collective.bibliocustomviews",
         "eea.facetednavigation",
         # with_binding_pil
         "Pillow",
