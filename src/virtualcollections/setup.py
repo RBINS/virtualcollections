@@ -64,6 +64,8 @@ setup(
         # with_ploneproduct_eeafn
         "python-dateutil",
         "collective.bibliocustomviews",
+        "collective.googleanalytics",
+        "collective.dexteritytextindexer",
         "eea.facetednavigation",
         # with_binding_pil
         "Pillow",
