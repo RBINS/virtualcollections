@@ -77,6 +77,7 @@ setup(
         'plone.app.widgets[archetypes,dexterity]',
         "collective.zipfiletransport",
         "plone.app.contenttypes",
+        'Products.ImageEditor',
         "plone.app.ldap",
         'rbins_masschange',
         # -*- Extra requirements: -*-
