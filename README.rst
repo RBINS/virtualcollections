@@ -2,6 +2,14 @@
 BUILDOUT FOR virtualcollections DOCUMENTATION
 ==============================================================
 
+
+NOTE ABOUT plone.app.widgets
+
+we forked a bunch of packages to support collection folder listing.
+
+Thus the upgrade to plone5 will be hard as upstream didnt want it ...
+
+
 INSTALLING THIS PROJECT
 -----------------------------------------
 ::
