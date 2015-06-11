@@ -36,7 +36,7 @@ defaults
   timeout connect 7s
   timeout queue   15s
   timeout client  300s
-  timeout server  300s
+  timeout server  900s
 
   stats enable
   stats uri /_balancer_status_
@@ -62,4 +62,4 @@ backend zope
   cookie serverid insert indirect
   option httpchk GET /
 
-  server  zope0101 ${hosts:instance1}:${ports:instance1} cookie z0101 check maxconn 2 maxqueue 50
+  server  zope0101 ${hosts:instance1}:${ports:instance1} cookie z0101 check maxconn 2 maxqueue 70
