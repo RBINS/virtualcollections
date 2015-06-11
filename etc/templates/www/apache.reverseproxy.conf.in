@@ -34,7 +34,7 @@ RewriteCond %{REQUEST_URI} ^/(zmiroot)
 RewriteRule ^/(.*)$   /VirtualHostBase/${scheme}/${host}:${port}/VirtualHostRoot/_vh_zmiroot$1 [L,PT]
 
 # supervisor
-ProxyPass         /supervisor/ http://${hosts:supervisor}:${ports:supervisor}/ retry=1
+ProxyPass         /supervisor/ http://${hosts:supervisor}:${ports:supervisor}/ retry=0
 ProxyPassReverse  /supervisor/ http://${hosts:supervisor}:${ports:supervisor}/
 
 # for https://issues.apache.org/bugzilla/show_bug.cgi?id=53218, only use a simple worker url
@@ -48,8 +48,8 @@ RewriteRule ^/(.*)$ /VirtualHostBase/${scheme}/${host}:${port}/${v:plonesite}/Vi
 RewriteCond %{REQUEST_URI} ^.*devinprod.*
 RewriteRule ^/(.*)$ /VirtualHostBase/${scheme}/${host}:${port}/${v:plonesite}/VirtualHostRoot/_vh_$1 [L,PT] 
 
-ProxyPassMatch   (.*devinprod.*)   http://${hosts:zope-front}:${ports:devinprod}/$1 retry=1 
-ProxyPassMatch   (.*)              http://${hosts:zope-front}:${ports:zope-front}/$1 retry=1
+ProxyPassMatch   (.*devinprod.*)   http://${hosts:zope-front}:${ports:devinprod}/$1 retry=0 
+ProxyPassMatch   (.*)              http://${hosts:zope-front}:${ports:zope-front}/$1 retry=0
 ProxyPassReverse  / http://${hosts:zope-front}:${ports:zope-front}/VirtualHostBase/${scheme}/${host}:${port}/${v:plonesite}/VirtualHostRoot/
 ProxyPassReverse  /zmiroot/ http://${hosts:zope-front}:${ports:zope-front}/VirtualHostBase/${scheme}/${host}:${port}/VirtualHostRoot/_vh_zmiroot/
 
