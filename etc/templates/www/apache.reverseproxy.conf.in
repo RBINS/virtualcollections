@@ -23,6 +23,11 @@ ProxyRequests off
   Allow from all
 </Proxy>
 RewriteEngine  on
+RewriteRule ^.*/((manage$)|(manage_([^/])*$)) - [L,NC]
+<LocationMatch "^.*/((manage$)|(manage_([^/])*$))">
+Order deny,allow
+Deny from all
+</LocationMatch>
 
 # maintainance page
 RewriteCond ${buildout:directory}/www/htdocs/maintainance/index.html -f

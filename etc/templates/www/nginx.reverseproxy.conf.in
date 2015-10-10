@@ -10,7 +10,9 @@ server {
     location /zmiroot/ {
         proxy_pass  http://${uname}/VirtualHostBase/http/${host}:${port}/VirtualHostRoot/_vh_zmiroot/;
     }
-
+    location  ~ ^.*/((manage$)|(manage_([^/])*$)) {
+    deny all;
+    }
     location / {
         set $maint "n";
         if ( -f ${v:reverse-proxy-docroot}/maintainance/index.html ){
