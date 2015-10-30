@@ -11,8 +11,8 @@
   <!--  RESOURCES -->
   <replace content='/html/head' theme='/html/head' />
   <merge attributes="class" css:content="body" css:theme="body" />
-  <merge attributes="data-i18ncatalogurl" css:content="body" css:theme="body" />
-  <copy attributes="id dir" css:content="body" css:theme="body" />
+  <copy attributes="data-i18ncatalogurl"        css:content="body" css:theme="head" />
+  <copy attributes="id dir data-i18ncatalogurl" css:content="body" css:theme="body" />
   <replace mode="raw"
     content='/html/head/meta[@name="viewport"]'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

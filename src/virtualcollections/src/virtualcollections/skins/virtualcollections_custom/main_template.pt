@@ -28,8 +28,8 @@
     Get the global cache headers located in global_cache_settings.
   </metal:cache>
 
-  <head>
-
+  <head
+  tal:attributes="data-i18ncatalogurl string:${here/portal_url};">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <meta name="generator" content="Plone - http://plone.org" />
@@ -63,6 +63,8 @@
                     sr python:plone_view.have_portlets('plone.rightcolumn', view);
                     body_class python:plone_view.bodyClass(template, view);"
         tal:attributes="class body_class;
+                        test string:a;
+                        data-i18ncatalogurl string:${here/portal_url};
                         dir python: isRTL and 'rtl' or 'ltr'">
     <div id="visual-portal-wrapper">
 
