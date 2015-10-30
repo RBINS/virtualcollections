@@ -81,8 +81,8 @@ setup(
         "plone.app.ldap",
         'rbins_masschange',
         # -*- Extra requirements: -*-
-        #"plomino.tinymce",
-        #"Products.CMFPlomino",
+        "plomino.tinymce",
+        "Products.CMFPlomino",
     ],
     extras_require={
         "test": ["plone.app.testing", "ipython"]
