@@ -1,4 +1,6 @@
 bin
+include
+lib
 cron_scripts/
 develop-eggs/
 downloads
@@ -41,3 +43,4 @@ node_modules/
 /toto.py
 /var.old
 /grepper
+ebr.cfg
