@@ -3,6 +3,7 @@ from zope import interface
 from plone.theme.interfaces import IDefaultPloneLayer
 
 #from virtualcollections import MessageFactory as _
+from z3c.form.interfaces import IFormLayer
 
 
 class IThemeSpecific(IDefaultPloneLayer):
@@ -11,6 +12,6 @@ class IThemeSpecific(IDefaultPloneLayer):
     """
 
 
-class ILayer(interface.Interface):
+class ILayer(IFormLayer):
     """Marker interface that defines a Zope 3 browser layer.
     """
