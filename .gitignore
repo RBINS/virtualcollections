@@ -1,6 +1,7 @@
 bin
 cron_scripts/
 develop-eggs/
+.idea
 downloads
 .DS_Store
 *.egg
@@ -41,3 +42,5 @@ node_modules/
 /toto.py
 /var.old
 /grepper
+etc/cache/*
+!etc/cache/.empty
