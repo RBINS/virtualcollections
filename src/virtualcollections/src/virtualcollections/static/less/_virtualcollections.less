@@ -89,8 +89,7 @@ h2{
   z-index: 5;
 }
 #portal-searchbox{
-  margin: 5px 0;
-  margin-top: 7em;
+  margin: 4em 0 5px 0;
 }
 #nolivesearchGadget{
   width: 146px; height: 20px;
@@ -166,7 +165,6 @@ div#content{
 }
 #portal-column-one, #portal-column-two{
   padding-top: 10px;
-  padding-top: 10px;
 }
 #portal-column-one,
 #portal-column-two{
@@ -208,7 +206,7 @@ div#content{
   right: 0;
 }
 #contentActionMenus  dl {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 dl.portlet.portletCollection dd.portletItem{
   padding-bottom: 5px;
@@ -291,6 +289,13 @@ div.searchSection,
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
+  #livesearch0 {
+    .LSBox {
+      .searchSection {
+        display: block;
+      }
+    }
+  }
   div.searchSection,
   #globalnav-wrapper,
   #portal-personaltools,

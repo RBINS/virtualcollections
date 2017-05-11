@@ -38,9 +38,13 @@ var/log/instance?.log
 !src/*virtualcollections*
 
 node_modules/
+npm-debug.log
 /grepper/
 /toto.py
 /var.old
 /grepper
 etc/cache/*
 !etc/cache/.empty
+
+*.pyc
+*.pyo
