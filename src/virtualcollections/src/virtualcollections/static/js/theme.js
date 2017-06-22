@@ -8,11 +8,3 @@ function equalHeight(group) {
 	});
 	group.height(tallest);
 }
-
-function initializeuebthesesenbretagne(){
-    /*
-    $('body.section-homepage #portal-column-one').toggleClass('span3').toggleClass('');
-    $('body.section-homepage #portal-column-two').toggleClass('span3').toggleClass('span4');
-    */
-}
-jQuery(initializeuebthesesenbretagne);
