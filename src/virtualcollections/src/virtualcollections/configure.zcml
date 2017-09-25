@@ -17,6 +17,7 @@
   <include package="plone.app.themingplugins" file="configure.zcml" />
   <include package="plone.app.dexterity" file="configure.zcml" />
   <include package="plone.app.dexterity" file="meta.zcml" />
+  <include package="Products.PloneKeywordManager" file="configure.zcml" />
   <!-- Load the ZCML configuration for the virtualcollections package.-->
   <!--with_ploneproduct_datatables -->
   <include package="collective.js.datatables" file="configure.zcml"/>

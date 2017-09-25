@@ -78,6 +78,7 @@ setup(
         "collective.zipfiletransport",
         "plone.app.contenttypes",
         'Products.ImageEditor',
+        'Products.PloneKeywordManager',
         "plone.app.ldap",
         'rbins_masschange',
         # -*- Extra requirements: -*-

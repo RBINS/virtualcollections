@@ -13,5 +13,6 @@
       <dependency>profile-plone.app.caching:default</dependency>
       <dependency>profile-collective.js.jqueryui:default</dependency>
       <dependency>profile-collective.zipfiletransport:default</dependency>
+      <dependency>profile-Products.PloneKeywordManager:default</dependency>
  </dependencies>
 </metadata>
