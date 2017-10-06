@@ -10,6 +10,7 @@
     i18n_domain="virtualcollections">
   <include package="Products.Five" file="configure.zcml"/>
   <include package="Products.CMFCore" file="permissions.zcml" />
+  <include package="collective.tablepage" file="configure.zcml"/>
   <!-- safe check for dexterity or multilingual & tests -->
   <include package="plone.app.contentmenu" />
   <include package="plone.app.collection" file="configure.zcml" />
