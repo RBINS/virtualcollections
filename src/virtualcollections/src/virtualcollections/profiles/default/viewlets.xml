@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object>
+ <hidden manager="plone.portalfooter" skinname="virtualcollections">
+  <viewlet name="plone.footer"/>
+ </hidden>
+ <hidden manager="plone.belowcontent" skinname="virtualcollections"/>
+</object>
