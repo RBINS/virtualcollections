@@ -68,6 +68,7 @@ setup(
         "collective.googleanalytics",
         "collective.dexteritytextindexer",
         "eea.facetednavigation",
+        "ecreall.helpers.upgrade",
         # with_binding_pil
         "Pillow",
         # with_ploneproduct_datatables

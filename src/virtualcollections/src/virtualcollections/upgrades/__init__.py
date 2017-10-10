@@ -3,6 +3,7 @@
 import datetime
 import re
 import logging
+from ecreall.helpers.upgrade.interfaces import IUpgradeTool
 
 #try:
 #    from Products.CMFPlone.migrations import migration_util
@@ -296,9 +297,9 @@ def upgrade_1001(context):
     recook_resources(context)
 
     #portal_setup.runImportStepFromProfile(
-    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)  
+    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)
     #portal_setup.runImportStepFromProfile(
-    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False) 
+    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)
     #portal_setup.runImportStepFromProfile(
     #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)
     #portal_setup.runImportStepFromProfile(
@@ -308,3 +309,8 @@ def upgrade_1001(context):
     #portal_setup.runImportStepFromProfile(
     #   'profile-virtualcollections:default', 'propertiestool', run_dependencies=False)
     log('v1001 applied')
+
+
+def upgrade_1002(context):
+    tool = IUpgradeTool(context)
+    tool.runImportStep('virtualcollections', 'viewlets')

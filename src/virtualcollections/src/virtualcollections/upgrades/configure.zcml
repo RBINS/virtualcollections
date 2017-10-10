@@ -48,5 +48,13 @@
         handler=".upgrade_1001"
       />
 
+     <genericsetup:upgradeStep
+        profile="virtualcollections:default"
+        source="1001"
+        destination="1002"
+        title="virtualcollections - 1002"
+        description=""
+        handler=".upgrade_1002"
+      />
   <!-- vim:set ft=xml: -->
 </configure>
