@@ -19,6 +19,8 @@
   <include package="plone.app.dexterity" file="configure.zcml" />
   <include package="plone.app.dexterity" file="meta.zcml" />
   <include package="Products.PloneKeywordManager" file="configure.zcml" />
+  <include package="plone.restapi" file="configure.zcml"/>
+
   <!-- Load the ZCML configuration for the virtualcollections package.-->
   <!--with_ploneproduct_datatables -->
   <include package="collective.js.datatables" file="configure.zcml"/>
@@ -31,7 +33,7 @@
   <!--with_ploneproduct_ckeditor -->
   <include package="collective.ckeditor" file="configure.zcml"/>
   <!--with_ploneproduct_pacaching -->
-  <include package="plone.app.caching" file="configure.zcml"/>o
+  <include package="plone.app.caching" file="configure.zcml"/>
   <!--with_ploneproduct_eeafn -->
   <!--with_ploneproduct_eeatags -->
   <!--with_ploneproduct_eeadaviz -->
@@ -59,21 +61,21 @@
 
   <class class="plone.app.contenttypes.content.Collection">
     <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
-  </class> 
+  </class>
   <class class="plone.app.collection.collection.Collection">
     <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
   </class>
- 
+
   <five:registerPackage package="." initialize=".initialize" />
   <include package=".browser" />
   <include file="profiles.zcml" />
   <i18n:registerTranslations directory="locales" />
-  
+
   <cmf:registerDirectory
        name="virtualcollections_custom"/>
-  
 
- 
+
+
 
   <five:implements
       class="plone.app.contenttypes.content.Folder"

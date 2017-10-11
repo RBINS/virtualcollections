@@ -58,6 +58,7 @@ setup(
         "plone.directives.form",
         "plone.app.theming",
         "plone.app.themingplugins",
+        'plone.restapi',
         # with_ploneproduct_cjqui
         "collective.js.jqueryui",
         # with_ploneproduct_ckeditor

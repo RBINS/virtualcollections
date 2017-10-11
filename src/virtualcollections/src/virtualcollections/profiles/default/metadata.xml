@@ -15,5 +15,6 @@
     <dependency>profile-collective.zipfiletransport:default</dependency>
     <dependency>profile-Products.PloneKeywordManager:default</dependency>
     <dependency>profile-collective.tablepage:default</dependency>
+    <dependency>profile-plone.restapi:default</dependency>
   </dependencies>
 </metadata>
