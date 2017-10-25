@@ -84,6 +84,7 @@ setup(
         'Products.PloneKeywordManager',
         "plone.app.ldap",
         'rbins_masschange',
+        'rbins.restapi',
         # -*- Extra requirements: -*-
         "plomino.tinymce",
         "Products.CMFPlomino",

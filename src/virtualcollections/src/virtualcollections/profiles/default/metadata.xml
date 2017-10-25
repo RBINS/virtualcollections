@@ -16,5 +16,6 @@
     <dependency>profile-Products.PloneKeywordManager:default</dependency>
     <dependency>profile-collective.tablepage:default</dependency>
     <dependency>profile-plone.restapi:default</dependency>
+    <dependency>profile-rbins.restapi:default</dependency>
   </dependencies>
 </metadata>
