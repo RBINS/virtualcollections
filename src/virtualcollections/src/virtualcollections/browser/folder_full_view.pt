@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<metal:content-core fill-slot="content-core"
+  tal:define="nav_root context/@@plone_portal_state/navigation_root_url;
+              url_quote nocall:modules/Products.PythonScripts.standard/url_quote;">
+  <metal:block use-macro="context/folder_listing/macros/content-core">
+    <!-- we don't want the dl -->
+    <metal:entries fill-slot="entries">
+      <metal:block use-macro="context/folder_listing/macros/entries">
+        <metal:entry fill-slot="entry">
+          <tal:object define="content python:item.getObject()">
+            <div tal:define="obj_view python:item.getObject().restrictedTraverse('folder_full_view_item')"
+                 tal:replace="structure python:obj_view()"/>
+            <div id="category"
+                 class="documentByLine"
+                 tal:define="categories content/Subject|nothing;"
+                 tal:condition="categories">
+              <tal:filedunder i18n:translate="label_filed_under">Filed under:</tal:filedunder>
+              TOTO
+              <span tal:repeat="category categories">
+              <a href=""
+                 class="link-category"
+                 rel="tag"
+                 tal:content="category"
+                 tal:define="quotedCat python:url_quote(category)"
+                 tal:attributes="href string:${nav_root}/@@search?Subject%3Alist=${quotedCat}">
+                Category
+                </a><span class="separator" tal:condition="not: repeat/category/end">,</span>
+            </span>
+            </div>
+          </tal:object>
+        </metal:entry>
+      </metal:block>
+    </metal:entries>
+  </metal:block>
+</metal:content-core>
+
+</body>
+</html>
