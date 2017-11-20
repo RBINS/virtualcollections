@@ -24,7 +24,6 @@
                  tal:define="categories content/Subject|nothing;"
                  tal:condition="categories">
               <tal:filedunder i18n:translate="label_filed_under">Filed under:</tal:filedunder>
-              TOTO
               <span tal:repeat="category categories">
               <a href=""
                  class="link-category"
