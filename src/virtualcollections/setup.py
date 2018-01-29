@@ -66,6 +66,7 @@ setup(
         # with_ploneproduct_eeafn
         "python-dateutil",
         "collective.bibliocustomviews",
+        "collective.excelexport",
         "collective.googleanalytics",
         "collective.dexteritytextindexer",
         "eea.facetednavigation",
