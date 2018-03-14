@@ -31,4 +31,10 @@ class DocumentBylineViewlet(ViewletBase, content.DocumentBylineViewlet):
     '''.'''
     index = ViewPageTemplateFile('document_byline.pt')
 
+    def show_about(self):
+        return super(DocumentBylineViewlet, self).show()
+
+    def show(self):
+        return True
+
 #from plone.app.layout.viewlets.common import ViewletBase

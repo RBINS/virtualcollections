@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="ckeditor_properties" meta_type="Plone Property Sheet">
+  <property name="title">CKEditor properties</property>
+  <property name="forcePasteAsPlainText" type="boolean">True</property>
+  <property name="toolbar" type="string">Full</property>
+  <property name="toolbar_Custom" type="text">[
+   ['Source','-','AjaxSave','Preview','-','Templates'],
+   ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+   ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+   ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+   '/',
+   ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+   ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+   ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+   ['Link','Unlink','Anchor'],
+   ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+   '/',
+   ['Styles','Format','Font','FontSize'],
+   ['TextColor','BGColor'],
+   ['Maximize', 'ShowBlocks','-','About']
+   ]</property>
+  <property name="filtering" type="string">default</property>
+  <property name="customAllowedContent"
+     type="text">/* Add items to array of allowedContent rules */
+   [background]</property>
+  <property name="extraAllowedContent"
+     type="text">/* Add items to array of allowedContent rules */
+   [{iframe: {attributes: ['src', 'width', 'height']}}]</property>
+  <property name="menuStyles" type="text">[
+   /* Block Styles */
+   { name : 'Grey Title'		, element : 'h2', styles : { 'color' : '#888' } },
+   { name : 'Grey Sub Title'		, element : 'h3', styles : { 'color' : '#888' } },
+   { name : 'Discreet bloc'		, element : 'p', attributes : { 'class' : 'discreet' } },
+   /* Inline styles */
+   { name : 'Discreet text'		, element : 'span', attributes : { 'class' : 'discreet' } },
+   { name : 'Marker: Yellow'	, element : 'span', styles : { 'background-color' : 'Yellow' } },
+   { name : 'Typewriter'		, element : 'tt' },
+   { name : 'Computer Code'	, element : 'code' },
+   { name : 'Keyboard Phrase'	, element : 'kbd' },
+   { name : 'Sample Text'		, element : 'samp' },
+   { name : 'Variable'			, element : 'var' },
+   { name : 'Deleted Text'		, element : 'del' },
+   { name : 'Inserted Text'	, element : 'ins' },
+   { name : 'Cited Work'		, element : 'cite' },
+   { name : 'Inline Quotation'	, element : 'q' },
+   { name : 'Language: RTL'	, element : 'span', attributes : { 'dir' : 'rtl' } },
+   { name : 'Language: LTR'	, element : 'span', attributes : { 'dir' : 'ltr' } },
+   /* Objects styles */
+   { name : 'Image on right'	, element : 'img', attributes : { 'class' : 'image-right' } },
+   { name : 'Image on left'	, element : 'img', attributes : { 'class' : 'image-left' } },
+   { name : 'Image centered'	, element : 'img', attributes : { 'class' : 'image-inline' } },
+   { name : 'Borderless Table', element : 'table', styles: { 'border-style': 'hidden', 'background-color' : '#E6E6FA' } },
+   { name : 'Square Bulleted List', element : 'ul', styles : { 'list-style-type' : 'square' } }
+
+   ]</property>
+  <property name="plugins" type="lines">
+   <element value="ajaxsave;/++resource++cke_ajaxsave/plugin.js"/>
+  </property>
+  <property name="removePlugins" type="lines"/>
+  <property name="customTemplates" type="lines"/>
+  <property name="templatesReplaceContent" type="boolean">False</property>
+  <property name="enableScaytOnStartup" type="boolean">False</property>
+  <property name="bodyId" type="string">content</property>
+  <property name="bodyClass" type="string">None</property>
+  <property name="width" type="string">None</property>
+  <property name="height" type="string">None</property>
+  <property name="allow_link_byuid" type="boolean">False</property>
+  <property name="allow_relative_links" type="boolean">True</property>
+  <property name="allow_server_browsing" type="boolean">True</property>
+  <property name="allow_file_upload" type="boolean">False</property>
+  <property name="allow_image_upload" type="boolean">False</property>
+  <property name="allow_flash_upload" type="boolean">False</property>
+  <property name="allow_folder_creation" type="boolean">False</property>
+  <property name="file_portal_type" type="string">auto</property>
+  <property name="file_portal_type_custom" type="lines">
+   <element value="*|File"/>
+   <element value="Folder|File"/>
+  </property>
+  <property name="image_portal_type" type="string">Image</property>
+  <property name="image_portal_type_custom" type="lines">
+   <element value="*|Image"/>
+   <element value="Folder|Image"/>
+  </property>
+  <property name="browse_images_portal_types" type="lines">
+   <element value="Image"/>
+  </property>
+  <property name="flash_portal_type" type="string">auto</property>
+  <property name="flash_portal_type_custom" type="lines">
+   <element value="*|File"/>
+   <element value="Folder|File"/>
+  </property>
+  <property name="browse_flashs_portal_types" type="lines">
+   <element value="File"/>
+  </property>
+  <property name="folder_portal_type" type="string">custom</property>
+  <property name="folder_portal_type_custom" type="lines">
+   <element value="*|Folder"/>
+   <element value="Large Plone Folder|Large Plone Folder"/>
+  </property>
+  <property name="ck_force_path" type="boolean">False</property>
+  <property name="ck_force_other_path" type="string"></property>
+  <property name="ck_force_root" type="boolean">False</property>
+  <property name="ck_force_other_root" type="string"></property>
+  <property name="properties_overloaded" type="lines">
+   <element value="width"/>
+  </property>
+  <property name="entities" type="boolean">False</property>
+  <property name="entities_greek" type="boolean">False</property>
+  <property name="entities_latin" type="boolean">False</property>
+  <property name="image2_alignClasses" type="lines">
+   <element value="image-left"/>
+   <element value="image-dummy"/>
+   <element value="image-right"/>
+  </property>
+  <property name="image2_captionedClass" type="string">image</property>
+  <property name="defaultTableWidth" type="string">800px</property>
+ </object>
+ <object name="imaging_properties" meta_type="Plone Property Sheet">
+  <property name="title">Image handling properties</property>
+  <property name="allowed_sizes" type="lines">
+   <element value="large 768:768"/>
+   <element value="preview 400:400"/>
+   <element value="mini 200:200"/>
+   <element value="thumb 128:128"/>
+   <element value="tile 64:64"/>
+   <element value="icon 32:32"/>
+   <element value="listing 16:16"/>
+  </property>
+  <property name="quality" type="int">88</property>
+ </object>
+ <object name="navtree_properties" meta_type="Plone Property Sheet">
+  <property name="title">NavigationTree properties</property>
+  <property name="sortAttribute"
+     type="string">getObjPositionInParent</property>
+  <property name="sortOrder" type="string">asc</property>
+  <property name="sitemapDepth" type="int">3</property>
+  <property name="name" type="string"></property>
+  <property name="root" type="string">/</property>
+  <property name="currentFolderOnlyInNavtree" type="boolean">False</property>
+  <property name="includeTop" type="boolean">True</property>
+  <property name="topLevel" type="int">0</property>
+  <property name="bottomLevel" type="int">0</property>
+  <property name="showAllParents" type="boolean">True</property>
+  <property name="idsNotToList" type="lines"/>
+  <property name="parentMetaTypesNotToQuery" type="lines">
+   <element value="TempFolder"/>
+  </property>
+  <property name="metaTypesNotToList" type="lines">
+   <element value="ATBooleanCriterion"/>
+   <element value="ATDateCriteria"/>
+   <element value="ATDateRangeCriterion"/>
+   <element value="ATListCriterion"/>
+   <element value="ATPortalTypeCriterion"/>
+   <element value="ATReferenceCriterion"/>
+   <element value="ATSelectionCriterion"/>
+   <element value="ATSimpleIntCriterion"/>
+   <element value="ATSimpleStringCriterion"/>
+   <element value="ATSortCriterion"/>
+   <element value="ChangeSet"/>
+   <element value="Discussion Item"/>
+   <element value="Plone Site"/>
+   <element value="TempFolder"/>
+   <element value="ATCurrentAuthorCriterion"/>
+   <element value="ATPathCriterion"/>
+   <element value="ATRelativePathCriterion"/>
+   <element value="PlominoAgent"/>
+   <element value="PlominoForm"/>
+   <element value="PlominoField"/>
+   <element value="PlominoDocument"/>
+   <element value="PlominoColumn"/>
+   <element value="PlominoAction"/>
+   <element value="PlominoHidewhen"/>
+  </property>
+  <property name="enable_wf_state_filtering" type="boolean">False</property>
+  <property name="wf_states_to_show" type="lines"/>
+ </object>
+ <object name="quickupload_properties" meta_type="Plone Property Sheet">
+  <property name="title">Quick Upload properties</property>
+  <property name="use_flashupload" type="boolean">False</property>
+  <property name="use_flash_as_fallback" type="boolean">False</property>
+  <property name="auto_upload" type="boolean">False</property>
+  <property name="show_upload_action" type="boolean">False</property>
+  <property name="fill_titles" type="boolean">True</property>
+  <property name="fill_descriptions" type="boolean">False</property>
+  <property name="size_limit" type="int">0</property>
+  <property name="sim_upload_limit" type="int">2</property>
+  <property name="object_override" type="boolean">True</property>
+ </object>
+ <object name="site_properties" meta_type="Plone Property Sheet">
+  <property name="title">Site wide properties</property>
+  <property name="allowAnonymousViewAbout" type="boolean">False</property>
+  <property name="displayPublicationDateInByline"
+     type="boolean">False</property>
+  <property name="default_language" type="string">en</property>
+  <property name="default_charset" type="string">utf-8</property>
+  <property name="ext_editor" type="boolean">False</property>
+  <property name="available_editors" type="lines">
+   <element value="None"/>
+   <element value="TinyMCE"/>
+   <element value="CKeditor"/>
+  </property>
+  <property name="default_editor" type="string">CKeditor</property>
+  <property name="allowRolesToAddKeywords" type="lines">
+   <element value="Manager"/>
+   <element value="Site Administrator"/>
+   <element value="Reviewer"/>
+  </property>
+  <property name="auth_cookie_length" type="int">0</property>
+  <property name="calendar_starting_year" type="int">2001</property>
+  <property name="calendar_future_years_available" type="int">5</property>
+  <property name="invalid_ids" type="lines">
+   <element value="actions"/>
+  </property>
+  <property name="default_page" type="lines">
+   <element value="index_html"/>
+   <element value="index.html"/>
+   <element value="index.htm"/>
+   <element value="FrontPage"/>
+  </property>
+  <property name="search_results_description_length" type="int">160</property>
+  <property name="ellipsis" type="string">...</property>
+  <property name="typesLinkToFolderContentsInFC" type="lines">
+   <element value="Folder"/>
+  </property>
+  <property name="visible_ids" type="boolean">True</property>
+  <property name="exposeDCMetaTags" type="boolean">True</property>
+  <property name="types_not_searched" type="lines">
+   <element value="ATBooleanCriterion"/>
+   <element value="ATDateCriteria"/>
+   <element value="ATDateRangeCriterion"/>
+   <element value="ATListCriterion"/>
+   <element value="ATPortalTypeCriterion"/>
+   <element value="ATReferenceCriterion"/>
+   <element value="ATSelectionCriterion"/>
+   <element value="ATSimpleIntCriterion"/>
+   <element value="ATSimpleStringCriterion"/>
+   <element value="ATSortCriterion"/>
+   <element value="ChangeSet"/>
+   <element value="Discussion Item"/>
+   <element value="Plone Site"/>
+   <element value="TempFolder"/>
+   <element value="ATCurrentAuthorCriterion"/>
+   <element value="ATPathCriterion"/>
+   <element value="ATRelativePathCriterion"/>
+  </property>
+  <property name="search_review_state_for_anon"
+     type="boolean">False</property>
+  <property name="search_enable_title_search" type="lines"/>
+  <property name="search_enable_description_search" type="lines"/>
+  <property name="search_enable_sort_on" type="lines">
+   <element value="auth"/>
+   <element value="anon"/>
+  </property>
+  <property name="search_enable_batch_size" type="lines">
+   <element value="auth"/>
+   <element value="anon"/>
+  </property>
+  <property name="search_collapse_options" type="boolean">True</property>
+  <property name="disable_folder_sections" type="boolean">False</property>
+  <property name="disable_nonfolderish_sections"
+     type="boolean">False</property>
+  <property name="typesUseViewActionInListings" type="lines">
+   <element value="Image"/>
+   <element value="File"/>
+  </property>
+  <property name="verify_login_name" type="boolean">True</property>
+  <property name="many_users" type="boolean">False</property>
+  <property name="many_groups" type="boolean">False</property>
+  <property name="enable_livesearch" type="boolean">True</property>
+  <property name="default_page_types" type="lines">
+   <element value="Topic"/>
+  </property>
+  <property name="use_folder_contents" type="lines"/>
+  <property name="forbidden_contenttypes" type="lines">
+   <element value="text/structured"/>
+   <element value="text/restructured"/>
+   <element value="text/x-rst"/>
+   <element value="text/plain"/>
+   <element value="text/plain-pre"/>
+   <element value="text/x-python"/>
+   <element value="text/x-web-markdown"/>
+   <element value="text/x-web-intelligent"/>
+   <element value="text/x-html-captioned"/>
+  </property>
+  <property name="default_contenttype" type="string">text/html</property>
+  <property name="enable_sitemap" type="boolean">True</property>
+  <property name="number_of_days_to_keep" type="int">7</property>
+  <property name="enable_inline_editing" type="boolean">False</property>
+  <property name="lock_on_ttw_edit" type="boolean">True</property>
+  <property name="enable_link_integrity_checks" type="boolean">True</property>
+  <property name="webstats_js" type="text">&lt;script&gt;
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+     ga('create', 'UA-89067518-3', 'auto');
+     ga('send', 'pageview');
+   &lt;/script&gt;</property>
+  <property name="external_links_open_new_window"
+     type="string">false</property>
+  <property name="icon_visibility" type="string">enabled</property>
+  <property name="mark_special_links" type="string">false</property>
+  <property name="redirect_links" type="boolean">True</property>
+  <property name="use_email_as_login" type="boolean">False</property>
+  <property name="user_registration_fields" type="lines">
+   <element value="fullname"/>
+   <element value="username"/>
+   <element value="email"/>
+   <element value="password"/>
+   <element value="mail_me"/>
+  </property>
+  <property name="allow_external_login_sites" type="lines"/>
+  <property name="external_login_url" type="string"></property>
+  <property name="external_logout_url" type="string"></property>
+  <property name="external_login_iframe" type="boolean">False</property>
+ </object>
+ <object name="zipfile_properties" meta_type="Plone Property Sheet">
+  <property name="title">Zip File Tool</property>
+  <property name="image_type" type="string">Image</property>
+  <property name="file_type" type="string">File</property>
+  <property name="doc_type" type="string">Document</property>
+  <property name="folder_type" type="string">Folder</property>
+  <property name="name_by_title" type="boolean">True</property>
+  <property name="allow_zip64" type="boolean">True</property>
+ </object>
+</object>
