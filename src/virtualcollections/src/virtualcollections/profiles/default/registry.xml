@@ -108,10 +108,6 @@
     <value>True</value>
   </record>
   <record name="collective.excelexport.excluded_exportables">
-    <field type="plone.registry.field.List">
-      <title>Fields excluded by default excel export datasource</title>
-      <value_type type="plone.registry.field.TextLine"/>
-    </field>
     <value>
       <element>allowDiscussion</element>
       <element>allow_discussion</element>
