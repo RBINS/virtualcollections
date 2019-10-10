@@ -278,14 +278,9 @@ def upgrade_plone(portal_setup):
 
 
 def upgrade_1001(context):
-    """
-    """
     site = getToolByName(context, 'portal_url').getPortalObject()
     portal_setup = site.portal_setup
 
-    # install Products.PloneSurvey and dependencies
-    #migration_util.loadMigrationProfile(
-    # site, 'profile-Products.PloneSurvey:default')
     portal_setup.runAllImportStepsFromProfile(
         'profile-collective.js.jqueryui:default')
     portal_setup.runAllImportStepsFromProfile(
@@ -296,21 +291,15 @@ def upgrade_1001(context):
     import_js(context)
     recook_resources(context)
 
-    #portal_setup.runImportStepFromProfile(
-    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)
-    #portal_setup.runImportStepFromProfile(
-    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)
-    #portal_setup.runImportStepFromProfile(
-    #    'profile-virtualcollections:default', 'jsregistry', run_dependencies=False)
-    #portal_setup.runImportStepFromProfile(
-    #   'profile-virtualcollections:default', 'cssregistry', run_dependencies=False)
-    #portal_setup.runImportStepFromProfile(
-    #   'profile-virtualcollections:default', 'portlets', run_dependencies=False)
-    #portal_setup.runImportStepFromProfile(
-    #   'profile-virtualcollections:default', 'propertiestool', run_dependencies=False)
-    log('v1001 applied')
-
 
 def upgrade_1002(context):
     tool = IUpgradeTool(context)
     tool.runImportStep('virtualcollections', 'viewlets')
+
+
+def upgrade_1003(context):
+    tool = IUpgradeTool(context)
+    tool.runImportStep('virtualcollections', 'viewlets')
+    tool.runImportStep('virtualcollections', 'propertiestool')
+    tool.runImportStep('virtualcollections', 'actions')
+    recook_resources(context)

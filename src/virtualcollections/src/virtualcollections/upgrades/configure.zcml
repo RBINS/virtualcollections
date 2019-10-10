@@ -56,5 +56,14 @@
         description=""
         handler=".upgrade_1002"
       />
-  <!-- vim:set ft=xml: -->
+
+     <genericsetup:upgradeStep
+        profile="virtualcollections:default"
+        source="1002"
+        destination="1003"
+        title="Remove global sections, login button, colophon"
+        description=""
+        handler=".upgrade_1003"
+      />
+
 </configure>
