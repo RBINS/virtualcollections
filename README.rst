@@ -16,8 +16,10 @@ INSTALLING THIS PROJECT
 
     cd virtualcollections
     mkdir workdir
-    git clone ssh://git@github.com:orga/project.git virtualcollections
-    sudo apt-get install -y build-essential m4 libtool pkg-config autoconf gettext bzip2 groff man-db automake libsigc++-2.0-dev tcl8.5 git libssl-dev libxml2-dev libxslt1-dev libbz2-dev zlib1g-dev python-setuptools python-dev libjpeg62-dev libreadline-dev python-imaging wv poppler-utils libsqlite0-dev libgdbm-dev libdb-dev tcl8.5-dev tcl8.5-dev tcl8.4 tcl8.4-dev tk8.5-dev libsqlite3-dev libcurl4-openssl-dev
+    sudo apt-get install -y build-essential m4 libtool pkg-config autoconf gettext bzip2 groff man-db automake \\
+    libsigc++-2.0-dev tcl8.5 git libssl-dev libxml2-dev libxslt1-dev libbz2-dev zlib1g-dev python-setuptools python-dev \\
+    libjpeg62-dev libreadline-dev python-imaging wv poppler-utils libsqlite0-dev libgdbm-dev libdb-dev \\
+    tcl8.5-dev tcl8.5-dev tcl8.4 tcl8.4-dev tk8.5-dev libsqlite3-dev libcurl4-openssl-dev
 
 Run buildout::
 
@@ -49,6 +51,15 @@ BASE BUILDOUTS WHICH DO ONLY SCHEDULE PARTS FROM THERE & THERE
     |-- etc/base.cfg               -> The base buildout
     |-- buildout-prod.cfg          -> buildout for production
     |-- buildout-dev.cfg           -> buildout for development
+
+Setup start at boot
+-------------------
+
+    sudo su
+    cd /etc/init.d
+    ln -s /path/to/buildout/etc/init.d/supervisor.initd supervisor-virtualcollections
+    update-rc.d supervisor-virtualcollections defaults
+    exit
 
 PROJECT Files
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,3 +102,11 @@ CONFIGURATION TEMPLATES
     `-- supervisor/supervisor.initd -> template for supervisor init script
 
 .. vim:set ft=rst:
+
+
+SITES LIST
+----------
+
+One site only :
+
+http://virtualcollections.naturalsciences.be/
