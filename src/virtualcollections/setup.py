@@ -5,23 +5,8 @@ from setuptools import setup, find_packages
 version = "1.0dev"
 
 
-def read(*rnames):
-    return open(
-        os.path.join(".", *rnames)
-    ).read()
-
-
-long_description = "\n\n".join(
-    [read("README.rst"),
-     read("docs", "INSTALL.rst"),
-     read("docs", "CHANGES.rst")]
-)
-
 classifiers = [
     "Framework :: Plone",
-    "Framework :: Plone :: 4.0",
-    "Framework :: Plone :: 4.1",
-    "Framework :: Plone :: 4.2",
     "Framework :: Plone :: 4.3",
     "Programming Language :: Python",
     "Topic :: Software Development"]
@@ -33,7 +18,7 @@ setup(
     ],
     version=version,
     description="virtualcollections",
-    long_description=long_description,
+    long_description="virtualcollections",
     classifiers=classifiers,
     keywords="",
     author="kiorky <kiorky@cryptelium.net>",
