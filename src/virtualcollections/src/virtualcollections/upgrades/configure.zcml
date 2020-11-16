@@ -66,4 +66,13 @@
         handler=".upgrade_1003"
       />
 
+    <genericsetup:upgradeStep
+        profile="virtualcollections:default"
+        source="1003"
+        destination="1004"
+        title="Fix mixed content"
+        description=""
+        handler=".upgrade_1004"
+      />
+
 </configure>

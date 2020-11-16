@@ -15,10 +15,14 @@ from Products.CMFCore.utils import getToolByName
 import transaction
 
 
+from Products.Archetypes.interfaces.field import ITextField
 from Products.GenericSetup.utils import _resolveDottedName
 from Testing.makerequest import makerequest
 from StringIO import StringIO
 
+from plone.portlet.static.static import IStaticPortlet
+from plone.portlets.interfaces import IPortletManager, IPortletAssignmentMapping
+from zope.component import getUtility, getMultiAdapter
 
 re_flags = re.U | re.M | re.S | re.X
 PRODUCT = 'virtualcollections'
@@ -303,3 +307,82 @@ def upgrade_1003(context):
     tool.runImportStep('virtualcollections', 'propertiestool')
     tool.runImportStep('virtualcollections', 'actions')
     recook_resources(context)
+
+
+# From https://github.com/collective/collective.searchandreplace/blob/master/collective/searchandreplace/searchreplaceutility.py
+def _replaceText(matcher, text, rtext):
+    """ Replace instances """
+    newtext = ""
+    mindex = 0
+    repl_count = 0
+    mobj = matcher.finditer(text)
+    for x in mobj:
+        start, end = x.span()
+        newtext += text[mindex:start]
+        newtext += rtext
+        mindex = end
+    newtext += text[mindex:]
+    return newtext
+
+
+def upgrade_1004(context):
+    """ Replace http:// and https:// to // in bodies """
+    site = getToolByName(context, 'portal_url').getPortalObject()
+    portal_catalog = getToolByName(context, 'portal_catalog')
+    matcher = re.compile('https?://', re.IGNORECASE)
+
+    # Replace in Page
+    brains = portal_catalog.unrestrictedSearchResults(portal_type='Document')
+    for brain in brains:
+        obj = brain.getObject()
+        for field in obj.Schema().values():
+            if ITextField.providedBy(field):
+                text = field.getRaw(obj, raw=True).raw
+                new_text = _replaceText(matcher, text, '//')
+                # field = obj_base.getField(fieldname)
+                field.set(obj, new_text)
+
+    # Replace in portlets
+    def replace_portlet_text(context):
+        for manager_name in [
+            "plone.leftcolumn",
+            "plone.rightcolumn",
+            "ContentWellPortlets.InHeaderPortletManager1",
+            "ContentWellPortlets.InHeaderPortletManager2",
+            "ContentWellPortlets.InHeaderPortletManager3",
+            "ContentWellPortlets.InHeaderPortletManager4",
+            "ContentWellPortlets.InHeaderPortletManager5",
+            "ContentWellPortlets.InHeaderPortletManager6",
+            "ContentWellPortlets.AbovePortletManager1",
+            "ContentWellPortlets.AbovePortletManager2",
+            "ContentWellPortlets.AbovePortletManager3",
+            "ContentWellPortlets.AbovePortletManager4",
+            "ContentWellPortlets.AbovePortletManager5",
+            "ContentWellPortlets.AbovePortletManager6",
+            "ContentWellPortlets.BelowPortletManager1",
+            "ContentWellPortlets.BelowPortletManager2",
+            "ContentWellPortlets.BelowPortletManager3",
+            "ContentWellPortlets.BelowPortletManager4",
+            "ContentWellPortlets.BelowPortletManager5",
+            "ContentWellPortlets.BelowPortletManager6",
+            "ContentWellPortlets.FooterPortletManager1",
+            "ContentWellPortlets.FooterPortletManager2",
+            "ContentWellPortlets.FooterPortletManager3",
+            "ContentWellPortlets.FooterPortletManager4",
+            "ContentWellPortlets.FooterPortletManager5",
+            "ContentWellPortlets.FooterPortletManager6",
+        ]:
+            manager = getUtility(IPortletManager, name=manager_name, context=context)
+            mapping = getMultiAdapter((context, manager), IPortletAssignmentMapping)
+
+            for id, assignment in mapping.items():
+                if IStaticPortlet.providedBy(assignment):
+                    text = assignment.text
+                    new_text = _replaceText(matcher, text, '//')
+                    assignment.text = new_text
+
+    replace_portlet_text(site)
+    brains = portal_catalog.unrestrictedSearchResults(portal_type=['Folder', 'Document'])
+    for brain in brains:
+        obj = brain.getObject()
+        replace_portlet_text(obj)
