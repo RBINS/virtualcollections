@@ -348,12 +348,13 @@ def upgrade_1004(context):
 
                     new_text = _replaceText(matcher, text, '//')
 
-                    old = field.get(obj)
-                    if old is None:
-                        text = RichTextValue(new_text)
-                    else:
-                        text = RichTextValue(new_text, old.mimeType, old.outputMimeType)
-                    setattr(field.interface(obj), field.__name__, text)
+                    if IRichText.providedBy(field):
+                        old = field.get(obj)
+                        if old is None:
+                            new_text = RichTextValue(new_text)
+                        else:
+                            new_text = RichTextValue(new_text, old.mimeType, old.outputMimeType)
+                    setattr(field.interface(obj), field.__name__, new_text)
 
     # Replace in portlets
     def replace_portlet_text(context):
