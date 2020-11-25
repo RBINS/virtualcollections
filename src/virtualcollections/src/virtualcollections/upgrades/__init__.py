@@ -20,9 +20,13 @@ from Products.GenericSetup.utils import _resolveDottedName
 from Testing.makerequest import makerequest
 from StringIO import StringIO
 
+from plone.app.textfield import IRichText, RichTextValue
+from plone.dexterity.utils import iterSchemata
 from plone.portlet.static.static import IStaticPortlet
 from plone.portlets.interfaces import IPortletManager, IPortletAssignmentMapping
 from zope.component import getUtility, getMultiAdapter
+from zope.schema import getFieldsInOrder
+from zope.schema.interfaces import IText
 
 re_flags = re.U | re.M | re.S | re.X
 PRODUCT = 'virtualcollections'
@@ -335,12 +339,21 @@ def upgrade_1004(context):
     brains = portal_catalog.unrestrictedSearchResults(portal_type='Document')
     for brain in brains:
         obj = brain.getObject()
-        for field in obj.Schema().values():
-            if ITextField.providedBy(field):
-                text = field.getRaw(obj, raw=True).raw
-                new_text = _replaceText(matcher, text, '//')
-                # field = obj_base.getField(fieldname)
-                field.set(obj, new_text)
+        for schemata in iterSchemata(obj):
+            fields = getFieldsInOrder(schemata)
+            for name, field in fields:
+                if IRichText.providedBy(field) or IText.providedBy(field):
+                    baseunit = getattr(field.interface(obj), field.__name__)
+                    text = getattr(baseunit, "raw", baseunit)
+
+                    new_text = _replaceText(matcher, text, '//')
+
+                    old = field.get(obj)
+                    if old is None:
+                        text = RichTextValue(new_text)
+                    else:
+                        text = RichTextValue(new_text, old.mimeType, old.outputMimeType)
+                    setattr(field.interface(obj), field.__name__, text)
 
     # Replace in portlets
     def replace_portlet_text(context):
