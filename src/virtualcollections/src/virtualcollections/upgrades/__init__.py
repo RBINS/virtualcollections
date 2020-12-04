@@ -331,17 +331,6 @@ def upgrade_1004(context):
     portal_catalog = getToolByName(context, 'portal_catalog')
     matcher = re.compile('https?://', re.IGNORECASE)
 
-    # Replace in Page
-    brains = portal_catalog.unrestrictedSearchResults(portal_type='Document')
-    for brain in brains:
-        obj = brain.getObject()
-        for field in obj.Schema().values():
-            if ITextField.providedBy(field):
-                text = field.getRaw(obj, raw=True).raw
-                new_text = _replaceText(matcher, text, '//')
-                # field = obj_base.getField(fieldname)
-                field.set(obj, new_text)
-
     # Replace in portlets
     def replace_portlet_text(context):
         for manager_name in [
