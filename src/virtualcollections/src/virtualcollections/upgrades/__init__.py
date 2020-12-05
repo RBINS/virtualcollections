@@ -23,6 +23,12 @@ from StringIO import StringIO
 from plone.portlet.static.static import IStaticPortlet
 from plone.portlets.interfaces import IPortletManager, IPortletAssignmentMapping
 from zope.component import getUtility, getMultiAdapter
+from zope.component import getAllUtilitiesRegisteredFor
+from zope.schema import getFieldsInOrder
+from zope.schema.interfaces import IText
+from plone.dexterity.utils import iterSchemata
+from plone.dexterity.interfaces import IDexterityFTI
+from plone.app.textfield import IRichText, RichTextValue
 
 re_flags = re.U | re.M | re.S | re.X
 PRODUCT = 'virtualcollections'
@@ -375,3 +381,44 @@ def upgrade_1004(context):
     for brain in brains:
         obj = brain.getObject()
         replace_portlet_text(obj)
+
+def upgrade_dexterity_https(context):
+    """ Replace http:// and https:// to // in bodies """
+    logger = logging.getLogger('rbins.dexterity.https.migrator')
+    site = getToolByName(context, 'portal_url').getPortalObject()
+    portal_catalog = getToolByName(context, 'portal_catalog')
+    matcher = re.compile('https?://(.*naturalsciences|naturalheritage)',
+                         flags=re.MULTILINE|re.IGNORECASE|re.UNICODE)
+    ftis = getAllUtilitiesRegisteredFor(IDexterityFTI)
+    tp = [fti.__name__ for fti in ftis]
+    brains = portal_catalog.unrestrictedSearchResults(portal_type=tp, sort_on='path')
+    logger.info('Operating http > https')
+    llen = len(brains)
+    for i, brain in enumerate(brains):
+        if i % 2000 == 0:
+            logger.info('Done: {0}'.format(round((float(i)/llen)*100, 2)))
+            import transaction;transaction.commit()
+        obj = brain.getObject()
+        for schemata in iterSchemata(obj):
+            fields = getFieldsInOrder(schemata)
+            for name, field in fields:
+                new_text = text = None
+                if IRichText.providedBy(field) or IText.providedBy(field):
+                    baseunit = getattr(field.interface(obj), field.__name__)
+                    text = getattr(baseunit, "raw", baseunit)
+                    if not text:
+                        continue
+                    mobj = matcher.search(text)
+                    if not mobj:
+                        continue
+                    new_text = matcher.sub('//\\1', text)
+                    old = field.get(obj)
+                    if new_text == text:
+                        continue
+                    logger.info('Operating on {0}'.format(obj.absolute_url()))
+                    if IRichText.providedBy(field):
+                        if old is None:
+                            new_text = RichTextValue(new_text)
+                        else:
+                            new_text = RichTextValue(new_text, old.mimeType, old.outputMimeType)
+                    setattr(field.interface(obj), field.__name__, new_text)

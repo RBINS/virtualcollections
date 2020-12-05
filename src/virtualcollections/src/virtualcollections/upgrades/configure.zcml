@@ -75,4 +75,13 @@
         handler=".upgrade_1004"
       />
 
+    <genericsetup:upgradeStep
+        profile="virtualcollections:default"
+        source="1004"
+        destination="1005"
+        title="Fix mixed content(dexterity)"
+        description=""
+        handler=".upgrade_dexterity_https"
+      />
+
 </configure>
