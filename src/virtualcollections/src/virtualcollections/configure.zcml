@@ -41,6 +41,9 @@
   <!--with_ploneproduct_eeadaviz -->
   <include package="eea.facetednavigation" file="meta.zcml"/>
   <include package="eea.facetednavigation" file="configure.zcml"/>
+
+  <include package="archetypes.schemaextender" />
+
   <class class="Products.ATContentTypes.content.folder.ATFolder">
     <implements interface="eea.facetednavigation.interfaces.IPossibleFacetedNavigable" />
   </class>
@@ -76,8 +79,11 @@
   <cmf:registerDirectory
        name="virtualcollections_custom"/>
 
-
-
+  <adapter
+      for="Products.CMFBibliographyAT.interface.IArticleReference"
+      provides="archetypes.schemaextender.interfaces.ISchemaExtender"
+      name="instancebiblio.articlereferencekeywordsext"
+      factory=".at.ArticleReferenceKeywordsExtender"/>
 
   <five:implements
       class="plone.app.contenttypes.content.Folder"
