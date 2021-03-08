@@ -10,3 +10,8 @@ try:
 except ImportError:
     print("Products.PDBDebugMode.pdblogging not available")
     pass
+
+
+import plone.app.widgets.dx
+
+plone.app.widgets.dx.AjaxSelectWidget.separator = ';;;'
