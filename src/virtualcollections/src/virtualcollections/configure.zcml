@@ -93,5 +93,10 @@
       interface="collective.bibliocustomviews.interfaces.ISearchViewEnabled"/>
   <include package="plone.resource" file="meta.zcml"/>
   <plone:static directory="static" type="theme" name="virtualcollections" />
+
+    <adapter factory=".exportables.RBINSDexterityFieldsExportableFactory"
+           provides="collective.excelexport.interfaces.IExportableFactory"
+           name="rbins"/>
+
 </configure>
 <!-- vim:set ft=xml: -->
