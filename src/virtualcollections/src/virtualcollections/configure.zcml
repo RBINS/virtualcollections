@@ -98,5 +98,11 @@
            provides="collective.excelexport.interfaces.IExportableFactory"
            name="rbins"/>
 
+  <adapter factory=".exportables.TextFieldRenderer" />
+  <adapter factory=".exportables.RichTextFieldRenderer" />
+
+  <adapter factory=".exportables.SubjectsRenderer"
+           name="subjects"/>
+
 </configure>
 <!-- vim:set ft=xml: -->
