@@ -51,7 +51,6 @@ setup(
         "plone.app.upgrade",
         "plone.app.themingplugins",
         "collective.dexteritytextindexer",
-        'collective.geo.bundle',
         "collective.tablepage",
         "plone.app.dexterity [relations]",
         "plone.app.referenceablebehavior",
