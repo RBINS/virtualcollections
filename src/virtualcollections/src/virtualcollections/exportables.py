@@ -71,6 +71,6 @@ class RichTextFieldRenderer(TextFieldRenderer):
     adapts(IRichText, Interface, ILayer)
 
     def _get_text(self, value):
-        ptransforms = api.portal.get_tool('portal_transforms')
-        return ptransforms.convert('html_to_text', value.output).getData().strip()
-
+        return value.raw
+        # ptransforms = api.portal.get_tool('portal_transforms')
+        # return ptransforms.convert('html_to_text', value.output).getData().strip()
