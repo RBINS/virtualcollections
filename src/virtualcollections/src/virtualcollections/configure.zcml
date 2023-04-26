@@ -22,6 +22,7 @@
   <include package="plone.restapi" file="configure.zcml"/>
   <include package="plone.app.contenttypes" file="configure.zcml"/>
   <include package="rbins.restapi" file="configure.zcml" />
+  <include package="collective.exportimport" file="configure.zcml"/>
 
   <!-- Load the ZCML configuration for the virtualcollections package.-->
   <!--with_ploneproduct_datatables -->

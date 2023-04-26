@@ -89,6 +89,7 @@ setup(
         # -*- Extra requirements: -*-
         "plomino.tinymce",
         "Products.CMFPlomino",
+        "collective.exportimport",
     ],
     extras_require={
         "test": ["plone.app.testing", "ipython"]
