@@ -90,6 +90,7 @@ setup(
         "plomino.tinymce",
         "Products.CMFPlomino",
         "collective.exportimport",
+        "ftw.trash",
     ],
     extras_require={
         "test": ["plone.app.testing", "ipython"]
